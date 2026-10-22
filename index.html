@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC ZONE | Digital Store</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #ff1020;
+    --bg: #050505;
+    --card: #111111;
+    --border: #252525;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: white;
+    font-family: Arial, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #080808;
+    border-bottom: 1px solid #222;
+    padding: 15px;
+}
+
+.nav {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo-box {
+    background: linear-gradient(135deg, red, #760000);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff000044;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    background: #191919;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-red {
+    background: linear-gradient(120deg, #ff1525, #c0000b);
+    box-shadow: 0 5px 20px #ff000033;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 18px 60px;
+}
+
+.hero {
+    padding: 50px 0 35px;
+}
+
+.badge {
+    display: inline-block;
+    color: #ff2636;
+    background: #200609;
+    border: 1px solid #661018;
+    border-radius: 30px;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(35px, 7vw, 60px);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.red-text {
+    color: var(--red);
+}
+
+.hero p {
+    color: #999;
+    line-height: 1.9;
+    max-width: 650px;
+}
+
+.banner {
+    position: relative;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    margin: 20px 0;
+    border: 1px solid #451015;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 80% 30%, #9c000c, transparent 40%),
+        linear-gradient(120deg, #310408, #080808);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.banner h2 {
+    font-size: clamp(24px, 5vw, 38px);
+    margin: 0 0 10px;
+}
+
+.banner p {
+    color: #ccc;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 25px 0 45px;
+}
+
+.stat {
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: var(--card);
+}
+
+.stat strong {
+    display: block;
+    color: var(--red);
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.stat small {
+    color: #999;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section h2 {
+    font-size: 25px;
+}
+
+.section h2 span {
+    color: var(--red);
+}
+
+.shortcuts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.shortcut {
+    padding: 20px;
+    background: linear-gradient(135deg, #200609, #111);
+    border: 1px solid #401016;
+    border-radius: 16px;
+    transition: .2s;
+}
+
+.shortcut:hover {
+    border-color: red;
+    transform: translateY(-3px);
+}
+
+.shortcut .icon {
+    font-size: 30px;
+    color: #ff2735;
+}
+
+.shortcut strong {
+    display: block;
+    margin-top: 10px;
+}
+
+.shortcut small {
+    display: block;
+    color: #999;
+    margin-top: 6px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.product {
+    background: linear-gradient(150deg, #171717, #090909);
+    border: 1px solid #282828;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #200609;
+    display: block;
+}
+
+.product-body {
+    padding: 14px;
+}
+
+.product h3 {
+    margin: 0 0 10px;
+}
+
+.product p {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.price {
+    color: #ff2835;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.product .btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+footer {
+    text-align: center;
+    background: #080808;
+    border-top: 1px solid #222;
+    padding: 30px 15px;
+    color: #888;
+}
+
+.instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 13px 20px;
+    color: white;
+    background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+    border-radius: 13px;
+    font-weight: bold;
+}
+
+.instagram svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.admin-panel {
+    display: none;
+    padding: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #9c111b;
+    border-radius: 15px;
+    background: #190609;
+}
+
+.admin-on .admin-panel {
+    display: block;
+}
+
+.edit-only {
+    display: none;
+}
+
+.admin-on .edit-only {
+    display: inline-block;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 7px 0 12px;
+    padding: 12px;
+    background: #080808;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+label {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: #000d;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.dialog {
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 18px;
+}
+
+.dialog h2 {
+    margin-top: 0;
+}
+
+.dialog p {
+    color: #999;
+    line-height: 1.7;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.actions button {
+    flex: 1;
+}
+
+.admin-edit {
+    margin: 8px 0;
+}
+
+@media (max-width: 800px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shortcuts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product img {
+        height: 145px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .product-body {
+        padding: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+        <a class="logo" href="#">
+            <span class="logo-box">PZ</span>
+            <span id="shopName">PC ZONE</span>
+        </a>
+
+        <button class="btn" onclick="openLogin()">
+            ♙ ผู้ดูแล
+        </button>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="admin-panel">
+        <strong>🛠️ โหมดผู้ดูแลเว็บไซต์</strong>
+        <p>คุณสามารถแก้ไขข้อความ รูปภาพ และสินค้าได้</p>
+
+        <button class="btn btn-red" onclick="openEditor()">
+            ⚙️ ตั้งค่าเว็บไซต์
+        </button>
+
+        <button class="btn" onclick="openProductEditor()">
+            ＋ เพิ่มสินค้า
+        </button>
+
+        <button class="btn" onclick="logout()">
+            ออกจากระบบ
+        </button>
+    </div>
+
+    <section class="hero">
+        <span class="badge" id="badge">⚡ PC ZONE OFFICIAL</span>
+
+        <h1 id="heroTitle">
+            ยินดีต้อนรับสู่ร้าน<br>
+            <span class="red-text">PC ZONE</span>
+        </h1>
+
+        <p id="heroDesc">
+            บริการรวดเร็ว ใส่ใจทุกขั้นตอน
+            เลือกชมสินค้าและรายละเอียดได้ที่นี่
+            ติดต่อทีมงานผ่าน Instagram
+        </p>
+
+        <button class="btn btn-red" onclick="goProducts()">
+            ▣ เริ่มเลือกสินค้า
+        </button>
+
+        <button class="btn" onclick="goContacts()">
+            ติดต่อร้าน →
+        </button>
+    </section>
+
+    <section class="banner" id="banner">
+        <div>
+            <h2 id="bannerTitle">WELCOME TO PC ZONE</h2>
+            <p id="bannerDesc">
+                สินค้าและบริการดิจิทัลในสไตล์ที่คุณชอบ
+            </p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <strong>1,250+</strong>
+            <small>ผู้เข้าชม</small>
+        </div>
+
+        <div class="stat">
+            <strong id="productCount">4</strong>
+            <small>รายการสินค้า</small>
+        </div>
+
+        <div class="stat">
+            <strong>ONLINE</strong>
+            <small>สถานะร้าน</small>
+        </div>
+
+        <div class="stat">
+            <strong>24/7</strong>
+            <small>ช่องทางติดต่อ</small>
+        </div>
+    </section>
+
+    <section class="section" id="contacts">
+        <h2><span>ติดต่อ</span> PC ZONE</h2>
+
+        <div class="shortcuts">
+
+            <a class="shortcut"
+               href="https://www.instagram.com/taweiopp__17?vrfl=bnBxcDJxeDQwd2U4"
+               target="_blank" rel="noopener">
+
+                <div class="icon">◎</div>
+                <strong>Instagram</strong>
+                <small>กดเพื่อส่งข้อความ</small>
+            </a>
+
+            <a class="shortcut"
+               href="https://discord.gg/QJJSaAyz"
+               target="_blank" rel="noopener">
+
+                <div class="icon">◉</div>
+                <strong>Discord</strong>
+                <small>เข้าร่วมชุมชน</small>
+            </a>
+
+            <a class="shortcut" href="#products">
+                <div class="icon">▣</div>
+                <strong>สินค้า</strong>
+                <small>เลือกชมสินค้า</small>
+            </a>
+
+            <a class="shortcut" href="#howto">
+                <div class="icon">ⓘ</div>
+                <strong>วิธีใช้งาน</strong>
+                <small>รายละเอียดเพิ่มเติม</small>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="section" id="products">
+        <h2><span>สินค้า</span> แนะนำ</h2>
+
+        <p style="color:#888">
+            เลือกชมสินค้าและกดติดต่อร้านเพื่อสอบถามรายละเอียด
+        </p>
+
+        <div class="products" id="productList"></div>
+    </section>
+
+    <section class="section" id="howto">
+        <h2>วิธี<span>ใช้งาน</span></h2>
+
+        <div class="shortcuts">
+            <div class="shortcut">
+                <div class="icon">①</div>
+                <strong>เลือกสินค้า</strong>
+                <small>ดูรายละเอียดก่อนสั่งซื้อ</small>
+            </div>
+
+            <div class="shortcut">
+                <div class="icon">②</div>
+                <strong>ติดต่อร้าน</strong>
+                <small>สอบถามข้อมูลเพิ่มเติม</small>
+            </div>
+
+            <div class="shortcut">
+                <div class="icon">③</div>
+                <strong>ตรวจสอบข้อมูล</strong>
+                <small>ยืนยันราคาและรายละเอียด</small>
+            </div>
+
+            <div class="shortcut">
+                <div class="icon">④</div>
+                <strong>รับบริการ</strong>
+                <small>ทำตามคำแนะนำของร้าน</small>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <h2 style="color:white">PC ZONE</h2>
+
+    <p>ขอบคุณที่แวะมาเยี่ยมชมเว็บไซต์ของเรา</p>
+
+    <a class="instagram"
+       href="https://www.instagram.com/taweiopp__17?vrfl=bnBxcDJxeDQwd2U4"
+       target="_blank" rel="noopener">
+
+        <svg viewBox="0 0 24 24" aria-label="Instagram">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+        </svg>
+
+        ติดต่อผ่าน Instagram
+    </a>
+
+    <br>
+
+    <a class="btn"
+       href="https://discord.gg/QJJSaAyz"
+       target="_blank" rel="noopener">
+        ◉ Discord
+    </a>
+
+    <p>© 2026 PC ZONE</p>
+</footer>
+
+<!-- หน้าต่างเข้าสู่ระบบ -->
+
+<div class="modal" id="loginModal">
+    <div class="dialog">
+        <h2>🔐 เข้าสู่ระบบผู้ดูแล</h2>
+
+        <p>
+            ผู้เข้าชมสามารถปิดหน้าต่างนี้และใช้งานเว็บไซต์ต่อได้
+        </p>
+
+        <label>รหัสผ่านผู้ดูแล</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="กรอกรหัสผ่าน"
+        >
+
+        <p id="loginError" style="color:red"></p>
+
+        <div class="actions">
+            <button class="btn btn-red" onclick="login()">
+                เข้าสู่ระบบ
+            </button>
+
+            <button class="btn" onclick="closeModal('loginModal')">
+                ข้าม
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- หน้าต่างแก้ไขเว็บไซต์ -->
+
+<div class="modal" id="editorModal">
+    <div class="dialog">
+        <h2>⚙️ แก้ไขเว็บไซต์ PC ZONE</h2>
+
+        <label>ชื่อร้าน</label>
+        <input id="editName">
+
+        <label>ข้อความป้ายด้านบน</label>
+        <input id="editBadge">
+
+        <label>หัวข้อหน้าแรก</label>
+        <input id="editTitle">
+
+        <label>รายละเอียดหน้าแรก</label>
+        <textarea id="editDesc"></textarea>
+
+        <label>หัวข้อแบนเนอร์</label>
+        <input id="editBannerTitle">
+
+        <label>รายละเอียดแบนเนอร์</label>
+        <input id="editBannerDesc">
+
+        <label>เปลี่ยนรูปแบนเนอร์</label>
+        <input type="file" id="bannerFile" accept="image/*">
+
+        <div class="actions">
+            <button class="btn btn-red" onclick="saveSettings()">
+                💾 บันทึก
+            </button>
+
+            <button class="btn" onclick="closeModal('editorModal')">
+                ปิด
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- หน้าต่างเพิ่มสินค้า -->
+
+<div class="modal" id="productModal">
+    <div class="dialog">
+        <h2>🛍️ เพิ่ม / แก้ไขสินค้า</h2>
+
+        <label>ชื่อสินค้า</label>
+        <input id="pName" placeholder="ชื่อสินค้า">
+
+        <label>ราคา</label>
+        <input id="pPrice" placeholder="เช่น ฿39.00">
+
+        <label>รายละเอียด</label>
+        <textarea id="pDesc" placeholder="รายละเอียดสินค้า"></textarea>
+
+        <label>รูปสินค้า</label>
+        <input type="file" id="pImage" accept="image/*">
+
+        <div class="actions">
+            <button class="btn btn-red" onclick="saveProduct()">
+                บันทึกสินค้า
+            </button>
+
+            <button class="btn" onclick="closeModal('productModal')">
+                ยกเลิก
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const INSTAGRAM =
+"https://www.instagram.com/taweiopp__17?vrfl=bnBxcDJxeDQwd2U4";
+
+const ADMIN_PASSWORD = "1212";
+
+let isAdmin = false;
+let editingId = null;
+
+let settings = loadData("pczoneSettings", {});
+
+let products = loadData("pczoneProducts", [
+    {
+        id: 1,
+        name: "สินค้าแนะนำ 01",
+        price: "฿39.00",
+        desc: "ใส่รายละเอียดสินค้าได้ตามต้องการ",
+        image: ""
+    },
+    {
+        id: 2,
+        name: "สินค้าแนะนำ 02",
+        price: "฿59.00",
+        desc: "เปลี่ยนชื่อ ราคา และรูปภาพได้",
+        image: ""
+    },
+    {
+        id: 3,
+        name: "บริการดิจิทัล",
+        price: "฿19.00",
+        desc: "ติดต่อร้านเพื่อสอบถามรายละเอียด",
+        image: ""
+    },
+    {
+        id: 4,
+        name: "แพ็กเกจพิเศษ",
+        price: "฿99.00",
+        desc: "เพิ่มรายละเอียดสินค้าของคุณเอง",
+        image: ""
+    }
+]);
+
+function loadData(key, fallback) {
+    try {
+        const value = localStorage.getItem(key);
+        return value ? JSON.parse(value) : fallback;
+    } catch (error) {
+        return fallback;
+    }
+}
+
+function closeModal(id) {
+    document.getElementById(id).classList.remove("show");
+}
+
+function openLogin() {
+    document.getElementById("password").value = "";
+    document.getElementById("loginError").textContent = "";
+    document.getElementById("loginModal").classList.add("show");
+}
+
+function login() {
+    const password = document.getElementById("password").value;
+
+    if (password === ADMIN_PASSWORD) {
+        isAdmin = true;
+
+        document.body.classList.add("admin-on");
+
+        closeModal("loginModal");
+
+        renderProducts();
+
+        alert("เข้าสู่ระบบผู้ดูแลสำเร็จ!");
+    } else {
+        document.getElementById("loginError").textContent =
+            "รหัสผ่านไม่ถูกต้อง";
+    }
+}
+
+function logout() {
+    isAdmin = false;
+
+    document.body.classList.remove("admin-on");
+
+    renderProducts();
+}
+
+function openEditor() {
+    if (!isAdmin) return;
+
+    document.getElementById("editName").value =
+        settings.name || "PC ZONE";
+
+    document.getElementById("editBadge").value =
+        settings.badge || "⚡ PC ZONE OFFICIAL";
+
+    document.getElementById("editTitle").value =
+        settings.title || "ยินดีต้อนรับสู่ร้าน PC ZONE";
+
+    document.getElementById("editDesc").value =
+        settings.desc ||
+        "บริการรวดเร็ว ใส่ใจทุกขั้นตอน เลือกชมสินค้าได้ที่นี่";
+
+    document.getElementById("editBannerTitle").value =
+        settings.bannerTitle || "WELCOME TO PC ZONE";
+
+    document.getElementById("editBannerDesc").value =
+        settings.bannerDesc || "สินค้าและบริการดิจิทัล";
+
+    document.getElementById("bannerFile").value = "";
+
+    document.getElementById("editorModal").classList.add("show");
+}
+
+function saveSettings() {
+    if (!isAdmin) return;
+
+    settings.name =
+        document.getElementById("editName").value || "PC ZONE";
+
+    settings.badge =
+        document.getElementById("editBadge").value;
+
+    settings.title =
+        document.getElementById("editTitle").value;
+
+    settings.desc =
+        document.getElementById("editDesc").value;
+
+    settings.bannerTitle =
+        document.getElementById("editBannerTitle").value;
+
+    settings.bannerDesc =
+        document.getElementById("editBannerDesc").value;
+
+    const file = document.getElementById("bannerFile").files[0];
+
+    const finish = image => {
+        if (image) settings.bannerImage = image;
+
+        try {
+            localStorage.setItem(
+                "pczoneSettings",
+                JSON.stringify(settings)
+            );
+
+            applySettings();
+
+            closeModal("editorModal");
+
+            alert("บันทึกเว็บไซต์เรียบร้อย!");
+        } catch (error) {
+            alert("รูปภาพใหญ่เกินไป กรุณาเลือกรูปที่เล็กลง");
+        }
+    };
+
+    if (file) {
+        readImage(file, finish);
+    } else {
+        finish("");
+    }
+}
+
+function applySettings() {
+    document.getElementById("shopName").textContent =
+        settings.name || "PC ZONE";
+
+    document.getElementById("badge").textContent =
+        settings.badge || "⚡ PC ZONE OFFICIAL";
+
+    document.getElementById("heroTitle").textContent =
+        settings.title || "ยินดีต้อนรับสู่ร้าน PC ZONE";
+
+    document.getElementById("heroDesc").textContent =
+        settings.desc ||
+        "บริการรวดเร็ว ใส่ใจทุกขั้นตอน เลือกชมสินค้าและรายละเอียดได้ที่นี่ ติดต่อทีมงานผ่าน Instagram";
+
+    document.getElementById("bannerTitle").textContent =
+        settings.bannerTitle || "WELCOME TO PC ZONE";
+
+    document.getElementById("bannerDesc").textContent =
+        settings.bannerDesc || "สินค้าและบริการดิจิทัลในสไตล์ที่คุณชอบ";
+
+    if (settings.bannerImage) {
+        document.getElementById("banner").style.backgroundImage =
+            `linear-gradient(90deg,#0008,#0004),url("${settings.bannerImage}")`;
+    }
+}
+
+function readImage(file, callback) {
+    if (!file) {
+        callback("");
+        return;
+    }
+
+    if (file.size > 1200000) {
+        alert("รูปภาพต้องมีขนาดไม่เกิน 1.2 MB");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => callback(reader.result);
+
+    reader.readAsDataURL(file);
+}
+
+function openProductEditor(id = null) {
+    if (!isAdmin) return;
+
+    editingId = id;
+
+    const product = products.find(p => p.id === id);
+
+    document.getElementById("pName").value =
+        product ? product.name : "";
+
+    document.getElementById("pPrice").value =
+        product ? product.price : "";
+
+    document.getElementById("pDesc").value =
+        product ? product.desc : "";
+
+    document.getElementById("pImage").value = "";
+
+    document.getElementById("productModal").classList.add("show");
+}
+
+function saveProduct() {
+    if (!isAdmin) return;
+
+    const name = document.getElementById("pName").value.trim();
+
+    if (!name) {
+        alert("กรุณาใส่ชื่อสินค้า");
+        return;
+    }
+
+    const oldProduct = products.find(p => p.id === editingId);
+
+    const product = {
+        id: editingId || Date.now(),
+        name: name,
+        price: document.getElementById("pPrice").value || "สอบถามราคา",
+        desc: document.getElementById("pDesc").value,
+        image: oldProduct ? oldProduct.image : ""
+    };
+
+    const file = document.getElementById("pImage").files[0];
+
+    const finish = image => {
+        if (image) product.image = image;
+
+        if (editingId) {
+            products = products.map(p =>
+                p.id === editingId ? product : p
+            );
+        } else {
+            products.unshift(product);
+        }
+
+        try {
+            localStorage.setItem(
+                "pczoneProducts",
+                JSON.stringify(products)
+            );
+
+            renderProducts();
+
+            closeModal("productModal");
+        } catch (error) {
+            alert("บันทึกไม่ได้ กรุณาใช้รูปภาพที่เล็กลง");
+        }
+    };
+
+    if (file) {
+        readImage(file, finish);
+    } else {
+        finish("");
+    }
+}
+
+function deleteProduct(id) {
+    if (!isAdmin) return;
+
+    if (!confirm("ต้องการลบสินค้านี้หรือไม่?")) return;
+
+    products = products.filter(p => p.id !== id);
+
+    localStorage.setItem(
+        "pczoneProducts",
+        JSON.stringify(products)
+    );
+
+    renderProducts();
+}
+
+function renderProducts() {
+    const list = document.getElementById("productList");
+
+    list.innerHTML = "";
+
+    document.getElementById("productCount").textContent =
+        products.length;
+
+    products.forEach(product => {
+        const card = document.createElement("article");
+
+        card.className = "product";
+
+        const img = document.createElement("img");
+
+        img.alt = product.name;
+
+        img.src = product.image ||
+            "data:image/svg+xml," +
+            encodeURIComponent(
+                `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250">
+                <rect width="100%" height="100%" fill="#200609"/>
+                <text x="50%" y="48%" text-anchor="middle" fill="#ff2435"
+                font-size="48" font-weight="bold">PC ZONE</text>
+                <text x="50%" y="68%" text-anchor="middle" fill="#aaaaaa"
+                font-size="17">YOUR DIGITAL STORE</text></svg>`
+            );
+
+        card.appendChild(img);
+
+        const body = document.createElement("div");
+
+        body.className = "product-body";
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+
+        const desc = document.createElement("p");
+        desc.textContent = product.desc;
+
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent = product.price;
+
+        const contact = document.createElement("a");
+        contact.className = "btn btn-red";
+        contact.style.display = "block";
+        contact.style.textAlign = "center";
+        contact.textContent = "ติดต่อ / สอบถาม";
+        contact.href = INSTAGRAM;
+        contact.target = "_blank";
+        contact.rel = "noopener";
+
+        body.append(title, desc, price, contact);
+
+        if (isAdmin) {
+            const edit = document.createElement("button");
+            edit.className = "btn admin-edit";
+            edit.textContent = "✏️ แก้ไขสินค้า";
+            edit.style.width = "100%";
+            edit.onclick = () => openProductEditor(product.id);
+
+            const remove = document.createElement("button");
+            remove.className = "btn admin-edit";
+            remove.textContent = "🗑️ ลบสินค้า";
+            remove.style.width = "100%";
+            remove.onclick = () => deleteProduct(product.id);
+
+            body.append(edit, remove);
+        }
+
+        card.appendChild(body);
+        list.appendChild(card);
+    });
+}
+
+function goProducts() {
+    document.getElementById("products").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function goContacts() {
+    document.getElementById("contacts").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+applySettings();
+renderProducts();
+</script>
+
+</body>
+</html>egory||'ไม่มีหมวดหมู่')}</small></div><div style="display:flex;gap:7px;flex-shrink:0"><button class="btn secondary" data-edit="${escapeHTML(p.id)}">แก้ไข</button><button class="btn danger" data-delete="${escapeHTML(p.id)}">ลบ</button></div></div>`).join('')}
+function showAdmin(show){$('adminPanel').classList.toggle('show',show);if(show){renderAdmin();$('adminPanel').scrollIntoView({behavior:'smooth',block:'start'})}}
+$('productGrid').addEventListener('change',e=>{if(e.target.matches('[data-check]')){const id=e.target.dataset.check;if(e.target.checked){const p=productById(id);setCart(id,Math.min(Number(cart[id])||1,Number(p?.stock)||1))}else setCart(id,0)}if(e.target.matches('[data-qty]')){const id=e.target.dataset.qty;setCart(id,e.target.value)}});
+$('productGrid').addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(b){const id=b.dataset.id,p=productById(id);setCart(id,(Number(cart[id])||1)+Number(b.dataset.step));if(!Object.hasOwn(cart,id)&&Number(b.dataset.step)>0)setCart(id,1)}});
+$('productGrid').addEventListener('change',e=>{if(e.target.matches('[data-qty]')&&!Object.hasOwn(cart,e.target.dataset.qty)){setCart(e.target.dataset.qty,e.target.value)}});
+$('searchInput').addEventListener('input',renderProducts);$('categoryFilter').addEventListener('change',renderProducts);
+$('openCart').addEventListener('click',()=>{renderCart();openOverlay('cartOverlay')});
+$('cartContent').addEventListener('click',e=>{const rem=e.target.closest('[data-remove]');if(rem){setCart(rem.dataset.remove,0);renderCart();return}const step=e.target.closest('[data-cart-step]');if(step){const id=step.dataset.id;setCart(id,(Number(cart[id])||1)+Number(step.dataset.cartStep));renderCart();return}if(e.target.closest('#goCheckout')){if(!cartItems().length)return;closeOverlay('cartOverlay');renderCheckoutSummary();openOverlay('checkoutOverlay');}});
+$('cartContent').addEventListener('change',e=>{if(e.target.matches('[data-cart-qty]')){setCart(e.target.dataset.cartQty,e.target.value);renderCart()}});
+document.addEventListener('click',e=>{const c=e.target.closest('[data-close]');if(c)closeOverlay(c.dataset.close)});
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeOverlay(o.id)}));
+$('backToCart').addEventListener('click',()=>{closeOverlay('checkoutOverlay');renderCart();openOverlay('cartOverlay')});
+$('checkoutForm').addEventListener('submit',e=>{
+ e.preventDefault();const items=cartItems();if(!items.length){closeOverlay('checkoutOverlay');return}
+ for(const item of items){if(item.qty>Number(item.product.stock)){alert(`สินค้า "${item.product.name}" มีไม่เพียงพอ กรุณาแก้ไขจำนวน`);closeOverlay('checkoutOverlay');renderProducts();return}}
+ const orderNo='MM'+new Date().toISOString().slice(2,10).replace(/-/g,'')+'-'+Math.random().toString(36).slice(2,7).toUpperCase();
+ const order={orderNo,createdAt:new Date().toISOString(),items:items.map(x=>({id:x.product.id,name:x.product.name,price:Number(x.product.price),qty:x.qty,subtotal:Number(x.product.price)*x.qty})),total:totalPrice(),buyer:{name:$('buyerName').value.trim(),phone:$('buyerPhone').value.trim(),email:$('buyerEmail').value.trim(),address:$('buyerAddress').value.trim(),district:$('buyerDistrict').value.trim(),amphoe:$('buyerAmphoe').value.trim(),province:$('buyerProvince').value.trim(),zip:$('buyerZip').value.trim(),note:$('buyerNote').value.trim()}};
+ orders.unshift(order);if(!save(KEYS.orders,orders)){orders.shift();return}
+ items.forEach(x=>{const p=productById(x.product.id);if(p)p.stock=Math.max(0,Number(p.stock)-x.qty)});save(KEYS.products,products);
+ cart={};persistCart();renderProducts();renderAdmin();$('checkoutForm').reset();closeOverlay('checkoutOverlay');
+ $('orderNumber').textContent=orderNo;$('orderSummary').innerHTML=`<div class="sumline"><span>ผู้รับ</span><b>${escapeHTML(order.buyer.name)}</b></div><div class="sumline"><span>จำนวนสินค้า</span><span>${order.items.reduce((s,x)=>s+x.qty,0)} ชิ้น</span></div><div class="sumline total"><span>ยอดรวมสินค้า</span><span>${money(order.total)}</span></div><p class="hint">รายการสินค้า: ${order.items.map(x=>`${escapeHTML(x.name)} × ${x.qty}`).join(', ')}</p>`;openOverlay('successOverlay');
+});
+$('finishOrder').addEventListener('click',()=>{closeOverlay('successOverlay');window.scrollTo({top:0,behavior:'smooth'})});
+$('adminToggle').addEventListener('click',()=>showAdmin(!$('adminPanel').classList.contains('show')));$('closeAdmin').addEventListener('click',()=>showAdmin(false));
+$('productForm').addEventListener('submit',e=>{e.preventDefault();const id=$('editId').value,name=$('pName').value.trim(),price=Number($('pPrice').value),stock=Math.floor(Number($('pStock').value));if(!name||!Number.isFinite(price)||price<0||!Number.isFinite(stock)||stock<0)return;const p={id:id||uid(),name,price,stock,category:$('pCategory').value.trim(),image:$('pImage').value.trim(),desc:$('pDesc').value.trim()};if(id){products=products.map(x=>x.id===id?p:x)}else products.unshift(p);if(!save(KEYS.products,products))return;resetProductForm();refreshCategories();renderProducts();renderAdmin()});
+$('adminProducts').addEventListener('click',e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit){const p=productById(edit.dataset.edit);if(!p)return;$('editId').value=p.id;$('pName').value=p.name;$('pPrice').value=p.price;$('pCategory').value=p.category||'';$('pStock').value=p.stock;$('pImage').value=p.image||'';$('pDesc').value=p.desc||'';$('saveProduct').textContent='บันทึกการแก้ไข';$('cancelEdit').style.display='inline-block';$('productForm').scrollIntoView({behavior:'smooth',block:'start'})}if(del){const p=productById(del.dataset.delete);if(!p)return;if(!confirm(`ต้องการลบสินค้า "${p.name}" ใช่หรือไม่?`))return;products=products.filter(x=>x.id!==p.id);delete cart[p.id];save(KEYS.products,products);persistCart();refreshCategories();renderProducts();renderAdmin()}});
+$('cancelEdit').addEventListener('click',resetProductForm);
+$('year').textContent=new Date().getFullYear();refreshCategories();persistCart();renderProducts();
+})();
+</script>
+</body>
+</html>
